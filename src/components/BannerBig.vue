@@ -43,15 +43,20 @@ export default {
 
 <style>
   .banner_container {
-    background-image: url("@/assets/images/electrician.png");
+    background-image: url("@/assets/images/electrician_banner.png");
     background-repeat: no-repeat;
     background-size: cover;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    height: 600px;
   }
 
   .banner_text_wrapper {
     padding: 3rem;
     display: flex;
     flex-direction: column;
+    width: 60%;
   }
 
   .banner_text_wrapper button {
@@ -114,5 +119,13 @@ export default {
     content: "\2022";
     color: #e8c547;
     margin: 1rem;
+  }
+
+  @media screen 
+  and (min-width: 1200px) 
+  and (max-width: 1600px) {
+    .banner_text_wrapper {
+      width: 100%;
+    }
   }
 </style>

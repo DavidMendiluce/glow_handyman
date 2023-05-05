@@ -3,7 +3,7 @@
     <div @mouseover="hideServices" class="top_header">
       <div class="header_first">
         <div class="header_logo">
-          <img src="@/assets/images/logo2.png"/>
+          <img src="@/assets/images/logov2.png"/>
         </div>
         <div class="header_certifications">
           <img src="@/assets/images/arctick_certified.png"/>
@@ -39,7 +39,7 @@
               </div>
           </div>
       </li>
-      <li>Contact Us</li>
+      <li><router-link to="../contact">Contact Us</router-link></li>
     </ul>
   </div>
   <div @mouseleave="hideServices" v-show="servicesOn" class="services_window">
@@ -85,6 +85,7 @@ export default {
 </script>
 
 <style scoped>
+
   .service_areas_list {
     margin: 0;
     padding: 0;
@@ -158,7 +159,7 @@ export default {
   .top_header {
     display: inline-flex;
     justify-content: space-between;
-    width: 90%;
+    width: 60%;
   }
 
   .top_header .header_first {
@@ -226,7 +227,7 @@ export default {
     padding: 0;
     display: inline-flex;
     justify-content: space-around;
-    width: 90%;
+    width: 60%;
     color: white;
   }
 
@@ -239,11 +240,23 @@ export default {
     cursor: pointer;
   }
   .service_areas {
-    width: 25%;
+    width: 20%;
     position: absolute;
     left: 52%;
     background-color: #202020;
     top: 9rem;
+  }
+
+  @media screen 
+  and (min-width: 1200px) 
+  and (max-width: 1600px) {
+    .top_header {
+      width: 90%;
+    }
+
+    .bottom_header_container ul {
+      width: 90%;
+    }
   }
 
 </style>

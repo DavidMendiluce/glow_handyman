@@ -2,9 +2,11 @@
   <HeaderComponent/>
   <HomePage v-if="!navigation"/>
   <router-view></router-view>
+  <FooterComponent/>
 </template>
 
 <script>
+import FooterComponent from './components/FooterComponent.vue';
 import HeaderComponent from './components/HeaderComponent';
 import HomePage from './components/HomePage.vue';
 
@@ -18,8 +20,9 @@ export default {
   },
   components: {
     HeaderComponent,
-    HomePage
-  },
+    HomePage,
+    FooterComponent
+},
   watch: {
     $route(currentRoute) {
       if(currentRoute.fullPath === '' || currentRoute.fullPath === '/' || currentRoute.fullPath.includes('home')) {

@@ -4,10 +4,16 @@
     :titleSecond="banner.titleSecond"
     :buttonTxt="banner.buttonTxt"  
   />
+  <div class="reviews_banner_wrapper">
+    <ReviewsBanner/>
+  </div>
+  <ServiceDescription/>
 </template>
 
 <script>
 import BannerBig from './BannerBig.vue';
+import ReviewsBanner from './ReviewsBanner.vue';
+import ServiceDescription from './ServiceDescription.vue';
 
 export default {
   name: "HomePage",
@@ -58,11 +64,15 @@ export default {
       }
     }
   },
-  components: { BannerBig }
+  components: { BannerBig, ReviewsBanner, ServiceDescription }
 }
 </script>
 
 
 <style>
-
+.reviews_banner_wrapper {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+}
 </style>

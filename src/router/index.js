@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router'
 
 import AboutUsPage from '../components/AboutUsPage'
+import ContactPage from '../components/ContactPage'
 import TestimonialsPage from '../components/TestimonialsPage'
 
 const routes = [
@@ -8,6 +9,11 @@ const routes = [
     path: '/aboutus',
     name: 'AboutUsPage',
     component: AboutUsPage
+  },
+  {
+    path: '/contact',
+    name: 'ContactPage',
+    component: ContactPage
   },
   {
     path: '/testimonials',
@@ -18,6 +24,9 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
+  scrollBehavior() {
+    return { top: 0 }
+  },
   routes
 })
 

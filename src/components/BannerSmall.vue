@@ -20,20 +20,30 @@ export default {
 
 
 <style scoped>
-  h1, h2, h3, h4, h5, h6, ul li, p {
-      color: white; 
-    }
-
-  .banner_small button {
-    width: 300px;
-    height: 60px;
+h1, h2, h3, h4, h5, h6, ul li, p {
+    color: white; 
   }
 
-  .banner_small h1 {
-    font-size: 38px;
-  }
+h1 {
+  margin: 1rem 0;
+}
 
-  .banner_small p {
-    margin: 0.4rem 0;
-  }
+.banner_container {
+  background-image: url("@/assets/images/bannerSmall4.png");
+  background-size: 110% 90%;
+  height: 400px;
+}
+
+.banner_small button {
+  width: 300px;
+  height: 60px;
+}
+
+.banner_small h1 {
+  font-size: 38px;
+}
+
+.banner_small p {
+  margin: 0.4rem 0;
+}
 </style>

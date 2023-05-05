@@ -1,52 +1,78 @@
 <template>
   <div v-show="!serviceClicked" class="services_container">
-    <div class="service_box">
-      <a href="/home/air_conditioner">
-        <img src="" alt="" class="services_img">
-        <h3>AIR CONDITIONER SERVICES</h3>
-      </a>
-    </div>
-    <div class="service_box">
-      <a href="/home/lighting">
-        <img src="" alt="" class="services_img">
-        <h3>LIGHTING AND POWER</h3>
-      </a>
-    </div>
-    <div class="service_box">
-      <a href="/home/switchboards">
-        <img src="" alt="" class="services_img">
-        <h3>SWITCHBOARDS</h3>
-      </a>
-    </div>
-    <div class="service_box">
-      <a href="/home/electrical_fault">
-        <img src="" alt="" class="services_img">
-        <h3>ELECTRICAL FAULT FINDING</h3>
-      </a>
-    </div>
-    <div class="service_box">
-      <a href="/home/data">
-        <img src="" alt="" class="services_img">
-        <h3>DATA AND COMMUNICATIONS</h3>
-      </a>
-    </div>
-    <div class="service_box">
-      <a href="/home/antennas">
-        <img src="" alt="" class="services_img">
-        <h3>ANTENNAS</h3>
-      </a>
-    </div>
-    <div class="service_box">
-      <a href="/home/security_systems">
-        <img src="" alt="" class="services_img">
-        <h3>SECURITY SYSTEMS</h3>
-      </a>
-    </div>
-    <div class="service_box">
-      <a href="/home/security_cameras">
-        <img src="" alt="" class="services_img">
-        <h3>SECURITY CAMERAS</h3>
-      </a>
+    <div class="services_wrapper">
+      <div class="service_box">
+        <a href="/home/air_conditioner">
+          <img src="@/assets/images/air_conditioner.jpeg" alt="" class="services_img">
+          <div class="border_Wrapper">
+            <div class="bottom-border"></div>
+          </div>
+          <h3>AIR CONDITIONER SERVICES</h3>
+        </a>
+      </div>
+      <div class="service_box">
+        <a href="/home/lighting">
+          <img src="@/assets/images/lighting.jpg" alt="" class="services_img">
+          <div class="border_Wrapper">
+            <div class="bottom-border"></div>
+          </div>
+          <h3>LIGHTING AND POWER</h3>
+        </a>
+      </div>
+      <div class="service_box">
+        <a href="/home/switchboards">
+          <img src="@/assets/images/switchboards.jpg" alt="" class="services_img">
+          <div class="border_Wrapper">
+            <div class="bottom-border"></div>
+          </div>
+          <h3>SWITCHBOARDS</h3>
+        </a>
+      </div>
+      <div class="service_box">
+        <a href="/home/electrical_fault">
+          <img src="@/assets/images/electrical_fault.jpg" alt="" class="services_img">
+          <div class="border_Wrapper">
+            <div class="bottom-border"></div>
+          </div>
+          <h3>ELECTRICAL FAULT FINDING</h3>
+        </a>
+      </div>
+      <div class="service_box">
+        <a href="/home/data">
+          <img src="@/assets/images/router.jpg" alt="" class="services_img">
+          <div class="border_Wrapper">
+            <div class="bottom-border"></div>
+          </div>
+          <h3>DATA AND COMMUNICATIONS</h3>
+        </a>
+      </div>
+      <div class="service_box">
+        <a href="/home/antennas">
+          <img src="@/assets/images/antennas.jpg" alt="" class="services_img">
+          <div class="border_Wrapper">
+            <div class="bottom-border"></div>
+          </div>
+          <h3>ANTENNAS</h3>
+        </a>
+      </div>
+      <div class="service_box">
+        <a href="/home/security_systems">
+          <img src="@/assets/images/security_system.jpg" alt="" class="services_img">
+          <div class="border_Wrapper">
+            <div class="bottom-border"></div>
+          </div>
+          <h3>SECURITY SYSTEMS</h3>
+        </a>
+      </div>
+      <div class="service_box">
+        <a href="/home/security_cameras">
+          <img src="@/assets/images/camera.jpg" alt="" class="services_img">
+          <div class="border_Wrapper">
+            <div class="bottom-border"></div>
+          </div>
+          <h3>SECURITY CAMERAS</h3>
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -60,20 +86,24 @@ export default {
 
 <style scoped>
   .services_container {
-    border: 1px solid red;
     width: 100%;
     height: 500px;
+    position: absolute;
+    background-color: white;
+    z-index: 2;
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  .services_wrapper {
+    width: 70%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-flow: wrap;
-    position: absolute;
-    background-color: white;
-    z-index: 2;
   }
 
   .service_box {
-    border: 1px solid yellow;
     width: 300px;
     height: 210px;
     margin: 1rem;
@@ -83,7 +113,6 @@ export default {
   }
 
   .service_box img {
-    border: 1px solid black;
     width: 100%;
     height: 160px;
   }
@@ -91,5 +120,28 @@ export default {
   .service_box h3 {
     text-align: center;
     margin: auto auto;
+    color: black;
+    padding: 1rem;
+  }
+
+  .border_Wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 5px;
+  }
+
+  .bottom-border {
+    width: 70%;
+    height: 100%;
+    background-color: #213c74;
+  }
+
+  @media screen 
+  and (min-width: 1200px) 
+  and (max-width: 1600px) {
+    .services_wrapper {
+      width: 100%;
+    }
   }
 </style>
