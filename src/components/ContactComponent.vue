@@ -1,6 +1,6 @@
 <template>
       <div class="contact_form">
-        <img>
+        <img src="@/assets/images/handyman.png">
         <div class="contact_inputs">
           <div class="input_section">
             <input placeholder="First name" class="name">
@@ -80,7 +80,6 @@ p {
 }
 
 img {
-  border: 1px solid red;
   width: 35%;
   height: 620px;
 }
@@ -109,6 +108,7 @@ textarea {
   height: 200px;
   padding-left: 20px;
   padding-top: 20px;
+  border: 1px solid #c9c9c9;
   outline: none;
 }
 
@@ -119,7 +119,7 @@ textarea {
 .upload_img_section {
   width: 790px;
   height: 165px;
-  border: 1px solid red;
+  border: 1px solid #c9c9c9;
   display: flex;
   margin-top: 2rem;
 }
@@ -178,9 +178,80 @@ button:hover {
 
 @media screen 
 and (min-width: 1200px) 
-and (max-width: 1700px) {
-  .container {
+and (max-width: 1600px) {
+  .contact_form {
+    margin-top: 0;
+  }
+
+  .input_section {
+    width: 100%;
+  }
+
+  .input_section input {
+    width: 45%;
+  }
+
+  textarea {
+    width: 97%;
+  }
+
+  .upload_img_section {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .contact_text h1 {
+    line-height: 1.3;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+
+  .contact_text h1 {
+    font-size: 30px;
+    line-height: 1.5;
+  }
+
+  .contact_text_description p {
     width: 90%;
+    font-size: 18px;
+  }
+
+  .contact_form img {
+    display: none;
+  }
+  
+  .contact_inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input_section {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input_section input {
+    width: 80%;
+    margin: 1rem auto;
+  }
+
+  .contact_inputs textarea {
+    width: 80%;
+    margin: 1rem auto;
+  }
+
+  .upload_img_section {
+    width: 85%;
+    margin: 1rem auto;
+  }
+
+  button {
+    width: 85%;
   }
 }
 </style>

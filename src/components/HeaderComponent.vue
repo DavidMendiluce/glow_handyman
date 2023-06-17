@@ -1,28 +1,36 @@
 <template>
-  <div  class="top_header_wrapper">
+  <div id="bottomHeaderScroll" class="bottom_header_container invisible">
+    <ul>
+      <li @click="goHome()">Home</li>
+      <li @mouseover="hideServices"><router-link to="../aboutus">About Us</router-link></li>
+      <li @mouseover="hideServices"><router-link to="../home">Services</router-link></li>
+      <li @mouseover="hideServices"><router-link to="../testimonials">Testimonials</router-link></li>
+      <li @mouseover="hideServices" @mouseleave="closeServiceAreas($event)"><router-link to="../home">Service Areas</router-link></li>
+      <li><router-link to="../contact">Contact Us</router-link></li>
+    </ul>
+  </div>
+  <div id="topHeader" class="top_header_wrapper">
     <div @mouseover="hideServices" class="top_header">
       <div class="header_first">
         <div class="header_logo">
-          <img src="@/assets/images/logov2.png"/>
+          <img @click="goHome()" src="@/assets/images/logov2.png"/>
         </div>
         <div class="header_certifications">
           <img src="@/assets/images/arctick_certified.png"/>
           <img src="@/assets/images/google_reviews.jpg"/>
-          <img src="@/assets/images/acredited_electrician.png"/>
+          <img style="width: 80px; height: 60px" src="@/assets/images/smrp.png"/>
         </div>
       </div>
       <div class="header_last">
         <i class="fa-brands fa-whatsapp fa-3x"></i>
         <h1 class="whatsapp_number">0504 767 2223</h1>
-        <div class="hamburger_container">
-          <HamburgerMenu/>
-        </div>
+        <i @click="toggleMenu" class="fa-solid fa-bars fa-3x"></i>
       </div>
     </div>
   </div>
-  <div class="bottom_header_container">
+  <div v-show="!headerScroll" id="bottomHeader" class="bottom_header_container">
     <ul>
-      <li><router-link to="/">Home</router-link></li>
+      <li @click="goHome()">Home</li>
       <li @mouseover="hideServices"><router-link to="../aboutus">About Us</router-link></li>
       <li @mouseover="showServices" @mouseleave="checkServices">Services</li>
       <li @mouseover="hideServices"><router-link to="../testimonials">Testimonials</router-link></li>
@@ -31,9 +39,9 @@
           <div ref="service_areas_ref" class="service_areas_wrapper">
               <div :class="[areas ? 'fadeIn' : 'fadeOut']" class="service_areas fadeActive">
                 <ul class="service_areas_list">
-                  <li><span>Air Conditioning Areas</span><span></span></li>
-                  <li><span>Electrical Areas</span><span></span></li>
-                  <li><span>EV Charge Areas</span><span></span></li>
+                  <li @click="goAir"><span>Air Conditioning Areas</span><span></span></li>
+                  <li @click="goElectric"><span>Electrical Areas</span><span></span></li>
+                  <li @click="goEv"><span>EV Charge Areas</span><span></span></li>
                   <li><p>Trusted Service in your Area</p></li>
                 </ul>
               </div>
@@ -41,6 +49,9 @@
       </li>
       <li><router-link to="../contact">Contact Us</router-link></li>
     </ul>
+  </div>
+  <div v-show="mobileMenu" class="hamburger_container">
+    <HamburgerMenu/>
   </div>
   <div @mouseleave="hideServices" v-show="servicesOn" class="services_window">
     <ServicesComponent/>
@@ -57,7 +68,9 @@ export default {
     return {
       servicesOn: false,
       enteredServices: false,
-      areas: false
+      areas: false,
+      mobileMenu: false,
+      headerScroll: false
     }
   },
   methods: {
@@ -76,15 +89,65 @@ export default {
     closeServiceAreas() {
       this.areas = false
     },
+
+    goAir() {
+      window.location.href = '../home/air_areas'
+    },
+
+    goEv() {
+      window.location.href = '../home/ev_areas'
+    },
+
+    goElectric() {
+      window.location.href = "../home/electrical_areas"
+    },
+
+    goHome() {
+      window.location.href = "../home"
+    },
+
+    toggleMenu() {
+      if(this.mobileMenu === true) {
+        this.mobileMenu = false;
+      } else {
+        this.mobileMenu = true;
+      }
+    },
+
+    handleScroll() {
+      let scroll = window.scrollY;
+      const header = document.getElementById('bottomHeaderScroll');
+        console.log(this.headerScroll);
+        if(scroll > 190) {
+        header.classList.remove('invisible')
+      } else {
+        header.classList.add('invisible')
+      }
+    }
+  },
+  created () {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  unmounted () {
+    window.removeEventListener('scroll', this.handleScroll);
   },
   components: {
     HamburgerMenu,
     ServicesComponent
-}
+  }
 }
 </script>
 
 <style scoped>
+
+  .invisible {
+    visibility: hidden;
+  }
+
+  #bottomHeaderScroll {
+    position: fixed;
+    z-index: 10;
+  }
 
   .service_areas_list {
     margin: 0;
@@ -96,11 +159,20 @@ export default {
 
   .service_areas_list li {
     color: white;
-    margin: 2rem;
+    margin: 1rem;
     height: 40px;
     list-style-type: none;
     display: flex;
     justify-content: end;
+  }
+
+  .service_areas_list li:first-child {
+    margin-top: 2rem;
+  }
+
+  .service_areas_list li:last-child:hover {
+    background-color: transparent;
+    cursor: auto;
   }
 
   .service_areas_list li:hover {
@@ -171,17 +243,13 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    cursor: pointer;
   }
 
   .top_header .header_logo img {
-    width: 200px;
-    height: 100px;
+    width: 180px;
+    height: 85px;
   }
-
-  .hamburger_container {
-    display: none;
-  }
-
   .header_certifications {
     height: 100px;
     display: flex;
@@ -200,7 +268,7 @@ export default {
     display: flex;
   }
 
-  .header_last i {
+  .header_last i:nth-child(1) {
     color: #213c74;
     margin: auto 1rem;
   }
@@ -239,12 +307,28 @@ export default {
   .bottom_header_container ul li:hover {
     cursor: pointer;
   }
+
   .service_areas {
     width: 20%;
     position: absolute;
     left: 52%;
     background-color: #202020;
     top: 9rem;
+  }
+
+  .fa-bars {
+    display: none;
+    color: #213c74;
+    margin: auto 2rem;
+    cursor: pointer;
+  }
+
+  .navbarHide {
+    display: none;
+  }
+
+  .navbarScroll {
+    position: fixed;
   }
 
   @media screen 
@@ -259,4 +343,75 @@ export default {
     }
   }
 
+  @media screen 
+  and (max-width: 1200px) {
+    .top_header {
+      z-index: 5;
+      top: 0px;
+      position: fixed;
+      background: white;
+      width: 100%;
+      border-bottom: 1px solid #dbdbdb;
+    }
+
+    .top_header_wrapper {
+      border-bottom: 1px solid #dbdbdb;
+    }
+
+    .bottom_header_container{
+      display: none;
+    }
+
+    .header_certifications img:nth-child(3) {
+      display: none;
+    }
+
+    .fa-bars {
+      display: block;
+    }
+
+    .hamburger_container .container {
+      z-index: 5;
+      top: 0px;
+      position: fixed;
+      background: white;
+      width: 100%;
+      margin-top: 6.3rem;
+    }
+  }
+
+  @media screen 
+  and (max-width: 1100px) {
+    .header_certifications img:nth-child(2) {
+      display: none;
+    }
+  }
+
+  @media screen 
+  and (max-width: 900px) {
+    .header_certifications img:nth-child(1) {
+      display: none;
+    }
+  }
+
+  @media screen 
+  and (max-width: 700px) {
+    .whatsapp_number {
+      display: none;
+    }
+
+    .header_certifications {
+      display: none;
+    }
+
+    .header_last i:nth-child(1) {
+      margin: auto 0;
+    }
+
+    .top_header .header_logo img {
+      width: 150px;
+      height: 75px;
+      margin: 1rem;
+    }
+  }
 </style>

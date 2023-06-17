@@ -2,11 +2,9 @@
   <div class="banner_container banner_small">
     <div class="banner_text_wrapper">
       <h1>
-        <span>{{ title }}</span>
+        <span>{{title}}</span>
       </h1>
-      <p>{{ description1 }}</p>
-      <p>{{ description2 }}</p>
-      <button v-if="buttonTxt !== ''">{{ buttonTxt }}</button>
+      <p>{{description}}</p>
     </div>
   </div>
 </template>
@@ -14,7 +12,7 @@
 <script>
 export default {
   name: 'BannerSmall',
-  props: ['title', 'description1', 'description2', 'buttonTxt']
+  props: ['title', 'description']
 }
 </script>
 
@@ -26,12 +24,25 @@ h1, h2, h3, h4, h5, h6, ul li, p {
 
 h1 {
   margin: 1rem 0;
+  color: #213c74;
+  font-size: 50px !important;
+}
+
+p {
+  width: 70%;
+  background-color: #213c74;
+  padding: 1rem;
+  border-left: 7px solid #e8c547;
+  font-family: 'Poppins';
+  line-height: 1.8;
 }
 
 .banner_container {
-  background-image: url("@/assets/images/bannerSmall4.png");
-  background-size: 110% 90%;
+  background-image: url("@/assets/images/electrical-tools-hd.jpg");
+  background-size: 100% 100%;
+  background-position: 0px -50px;
   height: 400px;
+  margin-bottom: 10rem;
 }
 
 .banner_small button {
@@ -56,17 +67,6 @@ and (max-width: 1600px) {
 
   .banner_small .banner_text_wrapper {
     padding: 1rem 4rem;
-  }
-
-  .banner_container {
-    background-image: url("@/assets/images/bannerSmallLaptop.png");
-  }
-}
-
-@media screen 
-and (max-width: 1200px) {
-  .banner_container {
-    margin-top: 5rem;
   }
 }
 

@@ -3,6 +3,8 @@ import {createRouter, createWebHistory} from 'vue-router'
 import AboutUsPage from '../components/AboutUsPage'
 import ContactPage from '../components/ContactPage'
 import TestimonialsPage from '../components/TestimonialsPage'
+import PrivacyPage from '../components/PrivacyPage'
+import TermsPage from '../components/TermsPage'
 
 const routes = [
   {
@@ -19,6 +21,16 @@ const routes = [
     path: '/testimonials',
     name: 'TestimonialsPage',
     component: TestimonialsPage
+  },
+  {
+    path: '/privacy',
+    name: 'PrivacyPage',
+    component: PrivacyPage
+  },
+  {
+    path: '/terms',
+    name: 'TermsPage',
+    component: TermsPage
   }
 ]
 

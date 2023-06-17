@@ -4,8 +4,8 @@
       <ul class="contact">
         <li class="logo"></li>
         <li><i class="fa-solid fa-angle-right"></i><router-link to="../contact">Contact Us</router-link></li>
-        <li><i class="fa-solid fa-angle-right"></i><router-link to="../contact">About Us</router-link></li>
-        <li><i class="fa-solid fa-angle-right"></i><router-link to="../contact">Testimonials Us</router-link></li>
+        <li><i class="fa-solid fa-angle-right"></i><router-link to="../aboutus">About Us</router-link></li>
+        <li><i class="fa-solid fa-angle-right"></i><router-link to="../testimonials">Testimonials Us</router-link></li>
         <li class="arctick"></li>
       </ul>
       <ul class="electrical">
@@ -22,15 +22,16 @@
       <ul class="ac">
         <li class="title">AC REPAIRS & SERVICES</li>
         <li><i class="fa-solid fa-angle-right"></i><router-link to="../home/air_conditioner">AirCon installations</router-link></li>
-        <li><i class="fa-solid fa-angle-right"></i><router-link to="../home/terms">Terms & Conditions</router-link></li>
-        <li><i class="fa-solid fa-angle-right"></i><router-link to="../home/privacy">Privacy Policy</router-link></li>
+        <li><i class="fa-solid fa-angle-right"></i><router-link to="../terms">Terms & Conditions</router-link></li>
+        <li><i class="fa-solid fa-angle-right"></i><router-link to="../privacy">Privacy Policy</router-link></li>
       </ul>
       <ul class="details">
         <li class="title">OUR DETAILS</li>
         <li><i class="fa-sharp fa-solid fa-location-dot fa-xl"></i>Valladolid, Spain</li>
-        <li><i class="fa-brands fa-whatsapp fa-xl"></i>555-555-555</li>
+        <li><i class="fa-brands fa-whatsapp fa-xl"></i>0504 767 2223</li>
         <li><i class="fa-regular fa-envelope fa-xl"></i>davidmendiluce@gmail.com</li>
         <li><i class="fa-regular fa-clock fa-xl"></i>09:00 - 15:00 / 18:00 - 22:00 GMT+2</li>
+        <li><img src="@/assets/images/upwork_logo.png"><a href="https://www.upwork.com/freelancers/davidmarcosmendiluce2">Contact me on upwork</a></li>
       </ul>
     </div>
   </div>
@@ -105,9 +106,88 @@ a {
 
 .details li:last-child {
   border-bottom: none;
+  display: inline-flex;
 }
 
 .contact :nth-child(n+4), .contact :nth-child(1) {
   border-bottom: none;
+}
+
+.details img {
+  width: 25px;
+  height: 25px;
+}
+
+.details a {
+  text-decoration: underline;
+  cursor: pointer;
+  margin: auto 15px;
+}
+
+@media screen 
+and (min-width: 1200px) 
+and (max-width: 1600px) {
+  .container {
+    width: 100%;
+  }
+
+  .container ul:nth-child(1) {
+    padding: 0;
+  }
+
+  .container ul li {
+    width: 250px;
+  }
+
+  .container .details li {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+  }
+
+  .container ul {
+    padding: 0;
+    width: 80%;
+    margin: auto;
+    margin-top: 2rem;
+  }
+
+  .container ul:nth-child(1) li:nth-child(1) {
+    width: 200px;
+    height: 50px;
+    margin: 2rem auto 3rem auto;
+  }
+
+  .container ul li {
+    width: 100%;
+  }
+
+  .contact:nth-child(n+4) {
+    border-bottom: 1px solid #cccccc;
+  }
+
+  .arctick {
+    display: none;
+  }
+
+  .details li:nth-child(5) {
+    font-size: 14px;
+  }
+
+  .details {
+    padding-bottom: 3rem !important;
+  }
 }
 </style>

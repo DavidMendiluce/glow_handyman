@@ -36,6 +36,10 @@ export default {
 </script>
 
 <style>
+  #app {
+    overflow: hidden;
+  }
+  
   body {
     font-family: Arial,helvetica neue,Helvetica,sans-serif;
     margin: 0;

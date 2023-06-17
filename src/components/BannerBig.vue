@@ -1,11 +1,11 @@
 <template>
-  <div class="banner_container">
+  <div v-bind:style="{ backgroundImage: 'url(' + imagePath + ')' }" class="banner_container">
     <div class="banner_text_wrapper">
       <h4>SPECIALIST IN</h4>
-      <h1>
+      <div class="title">
         <span>{{ titleFirst }}</span>
         <span>{{ titleSecond }}</span>
-      </h1>
+      </div>
       <ul>
         <li class="no_content">
           <span>Repairs</span>
@@ -23,15 +23,17 @@
 </template>
 
 <script>
+
+
 export default {
   name: 'BannerBig',
-  props: ['titleFirst', 'titleSecond', 'buttonTxt']
+  props: ['titleFirst', 'titleSecond', 'buttonTxt', 'imagePath']
 }
 </script>
 
 
 <style scoped>
-  h1, h2, h3, h4, h5, h6, ul li, p {
+  h1, h2, h3, h4, h5, h6, ul li, p, .title {
     color: white; 
   }
 
@@ -43,7 +45,6 @@ export default {
 
 <style>
   .banner_container {
-    background-image: url("@/assets/images/electrician_banner.png");
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -60,8 +61,8 @@ export default {
   }
 
   .banner_text_wrapper button {
-    width: 200px;
-    height: 50px;
+    width: 320px;
+    height: 60px;
     margin-top: 1rem;
     color: #213c74;
     background-color: #e8c547;
@@ -69,7 +70,7 @@ export default {
     border-radius: 3px;
     font-family: 'poppins', sans-serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 22px;
     cursor: pointer;
   }
 
@@ -82,7 +83,7 @@ export default {
     margin-bottom: 0;
   }
 
-  .banner_text_wrapper h1 {
+  .banner_text_wrapper h1, .banner_text_wrapper .title {
     padding-left: 0.1rem;
     font-size: 65px;
     font-family: 'poppins' ,sans-serif;
@@ -91,9 +92,10 @@ export default {
     line-height: 1.2;
     margin-bottom: 0;
     margin-top: 0;
+    font-weight: 700;
   }
 
-  .banner_text_wrapper h1 span:nth-child(2) {
+  .banner_text_wrapper .title span:nth-child(2) {
     color: #e8c547;
   }
 
@@ -126,6 +128,75 @@ export default {
   and (max-width: 1600px) {
     .banner_text_wrapper {
       width: 100%;
+    }
+  }
+
+  @media screen 
+  and (min-width: 700px) 
+  and (max-width: 1300px) {
+    .banner_container {
+      min-width: 1200px;
+    }
+
+    .banner_text_wrapper {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .banner_container {
+      background-image: url('@/assets/images/mobileBanner.png') !important;
+      height: 90px;
+      display: flex;
+      flex-direction: column;
+      margin-top: 5rem;
+    }
+
+    .banner_text_wrapper {
+      padding: 0;
+      width: 100%;
+    }
+
+    h4 {
+      font-weight: normal;
+      font-family: 'Poppins';
+      letter-spacing: 2px;
+      text-align: center;
+      margin-top: 0;
+      font-size: 14px;
+    }
+
+    .banner_text_wrapper .title {
+      display: inline-flex;
+      justify-content: center;
+      flex-direction: unset;
+      margin-top: 0.5rem;
+    }
+
+    .banner_container .title span {
+      font-size: 20px;
+      margin-right: 10px;
+      text-align: center;
+    }
+
+    .banner_container ul {
+      display: none;
+    }
+
+    .banner_container button {
+      display: none;
+    }
+
+    .banner_text_wrapper button {
+      margin-top: 0;
+    }
+
+    .banner_text_wrapper ul li {
+      font-size: 30px;
+    }
+
+    h1 span {
+      font-size: 50px;
     }
   }
 </style>

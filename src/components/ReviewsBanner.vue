@@ -159,5 +159,25 @@ and (max-width: 1600px) {
   .reviews_banner_container {
     width: 90%;
   }
+
+  .reviews_top h1 {
+    font-size: 28px;
+  }
+}
+
+@media screen 
+and (min-width: 700px) 
+and (max-width: 1280px) {
+  .reviews_top h1 {
+    font-size: 24px;
+  }
+
+  .reviews_banner_wrapper {
+    min-width: 1200px;
+  }
+
+  .reviews_banner_container {
+    width: 1076px;
+  }
 }
 </style>

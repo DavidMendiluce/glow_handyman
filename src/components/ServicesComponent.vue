@@ -21,7 +21,7 @@
       </div>
       <div class="service_box">
         <a href="/home/switchboards">
-          <img src="@/assets/images/switchboards.jpg" alt="" class="services_img">
+          <img src="@/assets/images/switchboards_beauty.png" alt="" class="services_img">
           <div class="border_Wrapper">
             <div class="bottom-border"></div>
           </div>
@@ -47,7 +47,7 @@
         </a>
       </div>
       <div class="service_box">
-        <a href="/home/antennas">
+        <a href="/home/antennas#antenna">
           <img src="@/assets/images/antennas.jpg" alt="" class="services_img">
           <div class="border_Wrapper">
             <div class="bottom-border"></div>
@@ -65,7 +65,7 @@
         </a>
       </div>
       <div class="service_box">
-        <a href="/home/security_cameras">
+        <a href="/home/security_cameras#cameras">
           <img src="@/assets/images/camera.jpg" alt="" class="services_img">
           <div class="border_Wrapper">
             <div class="bottom-border"></div>
@@ -87,12 +87,13 @@ export default {
 <style scoped>
   .services_container {
     width: 100%;
-    height: 500px;
+    height: 550px;
     position: absolute;
     background-color: white;
     z-index: 2;
     display: inline-flex;
     justify-content: center;
+    border-bottom: 2px solid #213c74;
   }
 
   .services_wrapper {
@@ -122,6 +123,7 @@ export default {
     margin: auto auto;
     color: black;
     padding: 1rem;
+    font-family: 'Poppins';
   }
 
   .border_Wrapper {
@@ -142,6 +144,17 @@ export default {
   and (max-width: 1600px) {
     .services_wrapper {
       width: 100%;
+    }
+  }
+
+  @media screen 
+  and (max-width: 1300px) {
+    .services_container {
+      height: 900px;
+    }
+
+    .service_box {
+      margin: 2rem;
     }
   }
 </style>

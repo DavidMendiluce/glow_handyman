@@ -1,14 +1,13 @@
 <template>
   <div class="google_review_container">
     <div class="google_user_img">
-      <img>
+      <img :src=profileImg>
     </div>
     <div class="google_review_text">
-      <p>Daniel's work, communication, punctuality and advice was terrific. 
-        We are really happy with the outcome.
+      <p>{{ description }}
       </p>
       <div class="google_review_user_container">
-        <h3>Donna Sinclair</h3>
+        <h3>{{username}}</h3>
         <img src="@/assets/images/google_and_stars.png">
       </div>
     </div>
@@ -17,7 +16,8 @@
 
 <script>
 export default {
-  name: 'GoogleReview'
+  name: 'GoogleReview',
+  props: ['description', 'username', 'profileImg']
 }
 </script>
 
@@ -25,7 +25,6 @@ export default {
 <style scoped>
 .google_review_container {
   max-width: 521px;
-  height: 95px;
   box-shadow: 0 14px 30px rgba(0,0,0,7%);
   border: 1px solid #f0edee;
   border-top-left-radius: 30px;
@@ -44,13 +43,12 @@ export default {
 
 .google_user_img {
   width: 100px;
-  border: 1px solid red;
 }
 
 .google_user_img img {
   width: 80px;
   height: 80px;
-  border: 1px solid yellow;
+  border: 1px solid #e8c547;
   border-radius: 50px;
 }
 
@@ -69,6 +67,44 @@ export default {
 
 .google_review_user_container h3 {
   margin: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .google_review_container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border-top-right-radius: 30px;
+  }
+
+  .google_user_img {
+    width: 100%;
+    display: flex;
+  }
+
+  .google_user_img img {
+    margin: auto;
+  }
+
+  .google_review_text p {
+    text-align: center;
+  }
+
+  .google_review_user_container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  .google_review_user_container h3 {
+    text-align: center;
+  }
+
+  .google_review_user_container img {
+    margin: 0.5rem auto;
+  }
+
 }
 
 </style>
